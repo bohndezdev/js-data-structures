@@ -33,19 +33,35 @@ class DoublyLinkedList {
   }
 
   shift() {
-    if(!this.head) { return null; }     // If the list was empty.
+    if(!this.head) { return null; }        // If the list was empty.
 
-    const nodeValue = this.head.value;  // Save the node value before remove it.
-    this.head = this.head.next;         // Now the head will be the next node.
+    const oldHeadValue = this.head.value;  // Save the node value before remove it.
+    this.head = this.head.next;            // Now the next node of the current head will be the head.
 
-    if(this.head) {                     // If the new head has a node.
-      this.head.prev = null;            // The previous node will be null.
-    } else {                            // If the new head is null.
-      this.tail = null                  // The tail will be null too because the list is empty.
+    if(this.head) {                        // If the new head has a node.
+      this.head.prev = null;               // The previous node will be null.
+    } else {                               // If the new head is null.
+      this.tail = null;                    // The tail will be null too because the list is empty.
     }
 
-    return nodeValue;                   // Return the value of the removed node.
+    return oldHeadValue;                   // Return the value of the removed node.
   }
+
+  pop() {
+    if(!this.tail) { return null; }        // If list is empty.
+
+    const oldTailValue = this.tail.value;  // Save current tail value to return it at the end.
+    this.tail = this.tail.prev;            // Change the current tail for the previous node.
+
+    if(this.tail) {                        // If the new tail exists.
+      this.tail.next = null;               // The next node of the new tail will be null. 
+    } else {                               // If the new tail is null.
+      this.head = null;                    // The head will be null too because the list is empty.
+    }
+
+    return oldTailValue;                   // Return the value of the old
+  }
+
 }
 
 const myList = new DoublyLinkedList();
@@ -55,4 +71,9 @@ myList.unshift(20);
 myList.unshift(30);
 
 myList.push(3);
+myList.push(2);
+myList.push(1);
+console.log(myList);
+
+myList.shift();
 console.log(myList);
