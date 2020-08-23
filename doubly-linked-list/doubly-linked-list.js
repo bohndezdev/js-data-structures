@@ -21,4 +21,23 @@ class DoublyLinkedList {
     }
     this.head = newNode;
   }
+
+  push(value) {
+    const newNode = new Node(value, null, this.tail);
+    if(this.tail) {
+      this.tail.next = newNode;
+    } else {
+      this.head = newNode;
+    }
+    this.tail = newNode;
+  }
 }
+
+const myList = new DoublyLinkedList();
+console.log(myList);
+myList.unshift(10);
+myList.unshift(20);
+myList.unshift(30);
+
+myList.push(3);
+console.log(myList);
