@@ -64,16 +64,24 @@ class DoublyLinkedList {
 
 }
 
+// New List
 const myList = new DoublyLinkedList();
 console.log(myList);
-myList.unshift(10);
-myList.unshift(20);
-myList.unshift(30);
 
-myList.push(3);
-myList.push(2);
-myList.push(1);
+// Adding nodes at the begining
+myList.unshift('manzana');
+myList.unshift('plátano');
 console.log(myList);
 
-myList.shift();
+// Add 2 nodes to the and
+myList.push('melón');
+myList.push('sandía');
+console.log(myList);
+
+// Removing first node
+console.log(myList.shift());
+console.log(myList);
+
+// Removing last node
+console.log(myList.pop());
 console.log(myList);
