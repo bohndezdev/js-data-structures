@@ -76,6 +76,19 @@ class DoublyLinkedList {
     return null                                 // If the seachValue not found in any node.
   }
 
+  searchNodesByValue(nodeValue) {
+    let currentNode = this.head;               // Save the first node to start the search.
+    const arr = [];                            // Creates an Array to store all nodes matches.
+    while(currentNode) {                       // While a node exists.
+      if( currentNode.value === nodeValue) {   // If ths current node value matches thith the searchValue.
+        arr.push(currentNode);                 // Add the node to the Array
+      }
+      currentNode = currentNode.next;          // currentNode will be the next to keep searching.
+    }
+  
+    return arr;  // Return the array with all matches.
+  }
+
 }
 
 // New List
@@ -90,6 +103,9 @@ console.log(myList);
 // Add 2 nodes to the and
 myList.push('melón');
 myList.push('sandía');
+myList.push('plátano');
+myList.push('plátano');
+myList.push('plátano');
 console.log(myList);
 
 // Removing first node
@@ -101,3 +117,4 @@ console.log(myList.pop());
 console.log(myList);
 
 console.log( myList.searchNodeByValue('melónn') );
+console.log( myList.searchNodesByValue('plátano') );
