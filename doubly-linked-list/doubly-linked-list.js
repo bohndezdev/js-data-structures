@@ -62,6 +62,20 @@ class DoublyLinkedList {
     return oldTailValue;                   // Return the value of the old
   }
 
+  searchNodeByValue(nodeValue) {
+    let currentnode = this.head;              // Save the first node.
+
+    while (currentnode) {                       // While a node exists.
+      if(currentnode.value === nodeValue) {   // If the currentNode vañue is the searched value.
+        return currentnode;                     // Return the node.
+      }
+
+      currentnode = currentnode.next            // Now currentNode will be the next to keep searhing.
+    }
+
+    return null                                 // If the seachValue not found in any node.
+  }
+
 }
 
 // New List
@@ -85,3 +99,5 @@ console.log(myList);
 // Removing last node
 console.log(myList.pop());
 console.log(myList);
+
+console.log( myList.searchNodeByValue('melónn') );
